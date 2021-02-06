@@ -9,7 +9,6 @@ let arr = [];
 window.addEventListener('load',  function () {
     if (arr[0] !== null) {
         for (let i = 0; i < (JSON.parse(localStorage.getItem("task")).length) ; i++) {
-            console.log(arr);
             let listItem = document.createElement("li");
             list.append(listItem);
             listItem.innerText = JSON.parse(localStorage.getItem("task"))[i];
@@ -41,6 +40,8 @@ createBtn.addEventListener("click", function (){
     if (task.value.length < 6){
         alert("minimum 6 karakterből álljon a task-od!");
     } else {
+
+        arr = JSON.parse(localStorage.getItem("task"))
         arr.push(task.value)
         localStorage.setItem("task", JSON.stringify(arr));
 
@@ -61,6 +62,9 @@ createBtn.addEventListener("click", function (){
             })
         }
 })
+
+
+
 
 
 //validation of input and create btn disable switch
