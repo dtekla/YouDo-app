@@ -1,6 +1,7 @@
 
 let list = document.getElementById("list");
 let task = document.getElementById("task");
+let createBtn = document.getElementById("createBtn");
 //function for deleting an item
 function deleteElement(element) {
     element.addEventListener("click", event => {
@@ -8,7 +9,7 @@ function deleteElement(element) {
     })
 }
 //creat list item by clicking on create button and deleting
-document.getElementById("createBtn").addEventListener("click", function (){
+createBtn.addEventListener("click", function (){
     if (task.value.length < 6){
         alert("minimum 6 karakterből álljon a task-od!");
     } else {
@@ -24,11 +25,12 @@ document.getElementById("createBtn").addEventListener("click", function (){
     }
 })
 
-//validation of input
-task.addEventListener("keydown", event => {
+//validation of input and create btn disable switch
+task.addEventListener("keyup", event => {
     if (task.value.length < 6) {
-        task.setAttribute("style", "background-color: red")
+        task.setAttribute("style", "background-color: red");
     } else if (task.value.length > 6) {
-        task.setAttribute("style", "background-color: green")
+        task.setAttribute("style", "background-color: green");
+        createBtn.removeAttribute("disabled");
     }
 });
