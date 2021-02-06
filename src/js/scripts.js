@@ -58,7 +58,9 @@ createBtn.addEventListener("click", function (){
         listItem.append(para);
 
         deleteBtn.addEventListener("click", event => {
-                event.target.parentElement.remove()
+                event.target.parentElement.remove();
+                arr.pop();
+                localStorage.setItem("task", JSON.stringify(arr));
             })
         }
 })
